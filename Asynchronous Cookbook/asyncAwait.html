@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <img id="imgDownload">
+  <script type="text/javascript">
+    // console.log("taskPromise is working asynchronously");
+    // await taskPromise;
+    // console.log('taskPromise has finished');
+
+    //async await function
+    // async function getImage(){
+    //   const url = 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Eagle_nebula_pillars.jpg';
+    //   try{
+    //     const response = await fetch(url);
+    //     console.log(`HTTP status: ${response.status}`);
+    //   }
+    //   catch(err){
+    //     console.log(`Error: ${error}`);
+    //   }
+    //   finally{
+    //     console.log('All done');
+    //   }
+    // }
+    //
+    // getImage().then(() => {
+    //   console.log('All asynchronous steps completed');
+    // })
+
+    // async function getImage(){
+    //   const url = 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Eagle_nebula_pillars.jpg';
+    //   const response = await fetch(url);
+    //
+    //   if(response.ok){
+    //     const blob = await response.blob();
+    //     const img = document.getElementById('imgDownload');
+    //     img.src = URL.createObjectURL(blob);
+    //   }
+    // }
+
+    //this is way to calling async await function
+    // getImage().then(response => {
+    //   console.log('Image download finished');
+    // })
+    // .catch(error => {
+    //   console.error(`Error: ${error}`);
+    // })
+
+
+    // simple implemented await keyword
+    async function f(){
+      let promise = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("done"), 1000)
+      })
+
+      let result = await promise;
+      alert(result);
+    }
+
+    f();
+
+  </script>
+</body>
+
+</html>

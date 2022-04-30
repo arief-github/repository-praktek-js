@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Changing an Elements Class Value</title>
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: red;
+      margin: 0 auto;
+    }
+
+    .existing-class{
+      width: 300px;
+      height: 300px;
+      background-color: green;
+      margin: 0 auto;
+    }
+
+    .my-class{
+      border: 10px solid yellow;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div id="example-element" class="existing-class"></div>
+  <script type="text/javascript">
+    const element = document.getElementById('example-element');
+    // adding css class
+    element.classList.add('box');
+    // remove an existing class
+    // element.classList.remove('existing-class');
+    // toggle switch
+    element.addEventListener("mouseover", (event) => {
+      element.classList.toggle('existing-class');
+    })
+    // checking if an element already has a class value
+    // if (element.classList.contains('new-class')) {
+    //   element.classList.remove('new-class');
+    // }
+
+    // add, remove, or toggle multiple classes
+    // add multiple classes
+    element.classList.add("my-class");
+    // remove multiple classes
+    // const classes = ["my-class", "another-class"];
+    // div.classList.remove(...classes);
+  </script>
+</body>
+
+</html>

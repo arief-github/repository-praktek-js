@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    // let json = "{bad json}";
+    // try {
+    //     let user = JSON.parse(json);
+    //     console.log(user.name);
+    // } catch (e) {
+    //     console.error("Data errors")
+    //     console.error(e.name);
+    //     console.error(e.message);
+    // }
+
+    let json = '{"age":30}';
+    let json2 = '{bad json}';
+
+    // try {
+    //   let user = JSON.parse(json);
+    //   if (!user.name) {
+    //     throw new SyntaxError("Incomplete data: no name!")
+    //   }
+    // } catch (e) {
+    //   console.error("JSON error : " + e.message)
+    // }
+
+    // throwing our own errors
+    // try {
+    //   let user = JSON.parse(json);
+    //   if (!user.name) {
+    //     throw new SyntaxError("Incomplete data: no name!")
+    //   }
+    // } catch (e) {
+    //   console.error("doesnt execute");
+    // }
+
+    // try catch finally
+
+    let num = prompt("Enter a positive integer number?", 35);
+
+    let diff, result;
+
+    function fib(n) {
+      if (n < 0 || Math.trunc(n) !== n) {
+        throw new Error("Must not be negative and also an integer");
+      }
+      return n <= 1 ? n : fib(n - 1) + fib(n - 2);
+    }
+
+    let start = Date.now();
+
+    try {
+      result = fib(num);
+    } catch (e) {
+      result = 0;
+    } finally {
+      diff = Date.now() - start;
+    }
+
+    alert(result || "error occured");
+    alert(` Executor took ${diff}ms`)
+  </script>
+</body>
+
+</html>

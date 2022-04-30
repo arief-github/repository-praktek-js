@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Event Object</title>
+</head>
+
+<body>
+  <button id="mybutton">Event Object Click</button>
+  <a href="https://wikipedia.com" id="myLink">Click this link</a>
+  <script type="text/javascript">
+    // this, currentTarget, target have the same value, that is the button
+    let btn = document.getElementById('mybutton');
+
+    // btn.onclick = function(event) {
+    //   console.log(event.currentTarget === this);
+    //   console.log(event.target === this);
+    // }
+
+
+    // event in parent node
+    // document.body.onclick = function(event){
+    //   console.log(event.currentTarget === document.body);
+    //   console.log(this === document.body);
+    //   console.log(event.target === document.getElementById('mybutton'));
+    // }
+
+    // assign a single function to handle multiple events
+    // let handler = function(event) {
+    //   switch (event.type) {
+    //     case "click":
+    //       console.log("clicked");
+    //       break;
+    //     case "mouseover":
+    //       event.target.style.backgroundColor = "red";
+    //       break;
+    //     case "mouseout":
+    //       event.target.style.backgroundColor = "yellow";
+    //       break;
+    //   }
+    // }
+    //
+    // btn.onclick = handler;
+    // btn.onmouseover = handler;
+    // btn.onmouseout = handler;
+
+    // preventDefault : cancel an element from normal behaviour
+    // let link = document.getElementById('myLink');
+    // link.onclick = function(event){
+    //   event.preventDefault();
+    // }
+
+    // stopPropagation() methods stops the flow of an event; bubbling and capturing
+    // btn.onclick = function(event){
+    //   console.log("Clicked");
+    //   event.stopPropagation();
+    // }
+    //
+    // document.body.onclick = function(event){
+    //   console.log("Body Clicked");
+    // }
+
+
+    // event phase
+    /*
+      If the
+      event handler is called during the capture phase, eventPhase is 1; if the event handler is at the target,
+      eventPhase is 2; if the event handler is during the bubble phase, eventPhase is 3.
+    */
+    btn.onclick = function(event) {
+      console.log(event.eventPhase);
+    }
+
+    document.body.addEventListener("click", (event) => {
+      console.log(event.eventPhase);
+    }, true)
+
+    document.body.onclick = (event) => {
+      console.log(event.eventPhase);
+    }
+  </script>
+</body>
+
+</html>

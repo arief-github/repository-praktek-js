@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Throwing Custom Error</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    class CustomError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = 'CustomError';
+
+        if (Error.captureStackTrace) {
+          Error.captureStackTrace(this, CustomError);
+        }
+      }
+    }
+
+    // throw new CustomError('An application-specific problem occured');
+    // throw new CustomError('HAHA ERROR!');
+
+    class ProductNotFound extends Error {
+      constructor(missingProductID) {
+        super(`Product ${missingProductID} does not exist in the catalog`);
+        this.name = 'ProductNotFound';
+        this.productID = missingProductID;
+
+        if (Error.captureStackTrace) {
+          Error.captureStackTrace(this, ProductNotFound);
+        }
+      }
+    }
+
+    // try {
+    //   throw new ProductNotFound(420)
+    // } catch (error) {
+    //   console.log(`An error occured with the message: ${error.message}`);
+    //   if (error instanceof ProductNotFound) {
+    //     console.log(`Missing: ${error.productID}`);
+    //   }
+    // }
+
+    // Validation Error
+    class ValidationError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = 'ValidationError';
+      }
+    }
+
+    // function test() {
+    //   throw new ValidationError("Whoops! JSON is not valid detected");
+    // }
+    //
+    // try {
+    //   test()
+    // } catch (err) {
+    //   alert(err.message);
+    //   alert(err.name);
+    //   alert(err.stack);
+    // }
+
+    // usage
+
+    function readUser(json) {
+      let user = JSON.parse(json);
+      if (!user.age) {
+        throw new ValidationError("No Field: age")
+      }
+      if (!user.name) {
+        throw new ValidationError("No Field: name")
+      }
+      return user;
+    }
+
+    // working example with try...catch
+    try {
+      let user = readUser('{"name": "arief"}');
+    } catch (err) {
+      if (err instanceof ValidationError) {
+        alert("Invalid data : " + err.message);
+      } else if (err instanceof SyntaxError) {
+        alert("JSON SyntaxError" + err.message)
+      } else {
+        throw err;
+      }
+    }
+  </script>
+</body>
+
+</html>

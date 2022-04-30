@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Client and Page Coordinates</title>
+  <style media="screen">
+    #myDiv {
+      width: 300px;
+      height: 300px;
+      background-color: red;
+      border: 1px solid red;
+      margin: 0 auto;
+    }
+
+    body {
+      height: 110vh;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="myDiv">
+  </div>
+  <script type="text/javascript">
+    let div = document.getElementById("myDiv");
+    // div.addEventListener("click", (event) => {
+    //   console.log(`Client coordinates: ${event.clientX}, ${event.clientY}`);
+    // } )
+    //
+    // div.addEventListener("dblclick",(event) => {
+    //   console.log(`Page coordinates: ${event.pageX}, ${event.pageY}`);
+    // })
+
+    // div.addEventListener("click", (event) => {
+    //   console.log(`Screen coordinates: ${event.screenX}, ${event.screenY}`);
+    // })
+
+    div.addEventListener("click", (event) => {
+      let keys = new Array();
+
+      if (event.shiftKey) {
+        keys.push("shift");
+      }
+
+
+      console.log("Keys: " + keys.join(","));
+    })
+  </script>
+</body>
+
+</html>

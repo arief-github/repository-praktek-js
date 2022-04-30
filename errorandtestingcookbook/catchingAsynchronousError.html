@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="text/javascript">
+    // kode ini dipastikan error karena kita akan memanggil http kosong
+    // instance dari XMLHttpRequest object
+    const request = new XMLHttpRequest();
+    // memamnggil method error
+    // request.onerror = function errorHandler(error){
+    //   console.log(error);
+    // }
+    //memanggil method open dan send
+    // request.open('GET', 'http://noserver');
+    // request.send();
+
+
+    // Promise-based API
+    // fetching empty URL
+    // then dijalankan ketika kondisi berhasil
+    // catch dijalankan ketika terjadi error
+    // fetch('http://noserver')
+    // .then((response) => {
+    //   console.log('we did it fam.');
+    //
+    // })
+    // .catch((error) => {
+    //   console.log(error);
+    // })
+
+    //async await
+    // async function doWork() {
+    //   try {
+    //     const response = await fetch('http://noserver');
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
+    //
+    // doWork().then(() => {
+    //   console.log('All done');
+    // })
+  </script>
+</body>
+
+</html>

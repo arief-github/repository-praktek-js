@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Accessing Inline SVG</title>
+
+</head>
+
+<body>
+  <svg width="600" height="600">
+    <rect id="square" width="400" height="400" fill="#f00" x="10" y="10" />
+  </svg>
+
+  <script>
+    // set element onclick event handler
+
+    window.onload = function() {
+      const square = document.getElementById('square');
+
+      // onclick event handler, change circle radius
+      square.onclick = function click() {
+        const color = this.getAttribute('fill');
+        if (color === '#f00') {
+          this.setAttribute('fill', '#00f')
+        } else {
+          this.setAttribute('fill', '#ff0')
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+Adding babel in jest.
+
+1. Installation
+
+babel-jest is now automatically loaded by Jest and fully integrated. This step is only required if you are using babel-jest to transform TypeScript files.
+
+npm install --save-dev babel-jest
+
+2. Usage
+
+In your package.json file make the following changes:
+
+{
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  }
+}
+3.   Create .babelrc configuration file
+
+Create a babel.config.json config in your project root and enable some presets.
+
+To start, you can use the env preset, which enables transforms for ES2015+
+
+npm install @babel/preset-env --save-dev
+In order to enable the preset you have to define it in your babel.config.json file, like this:
+
+{
+  "presets": ["@babel/preset-env"]
+}

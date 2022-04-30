@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Review Array Sementara</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// Adding and Deleting Array Elements
+		// in array literals
+		let a = [];
+		// a[0] = "zero";
+		// a[1] = "one";
+		// console.log(a);
+
+		// also you can use push() method
+		a.push("zero");
+		a.push("one", "two");
+		delete a[2];
+		// console.log(a);
+
+		// Iterating Arrays
+		let letters = [..."Hello World"];
+		
+		let string = "";
+		for(letter of letters){
+			string += letter;
+			// console.log(string);
+		}
+		// console.log(string);
+
+		let everyother = "";
+		for(let[index, letter] of letters.entries()){
+			if(index % 2 === 0) everyother += letter;
+		}
+		// console.log(everyother);
+
+		let uppercase = "";
+		letters.forEach(letter => {
+			uppercase += letter.toUpperCase();
+		})
+		// console.log(uppercase)
+
+		// 7.7. Multidimensional Arrays
+		let table = new Array(10);
+		for(let i = 0;i < table.length; i++){
+			// each row has 10 columns
+			table[i] = new Array(10);
+		}
+
+		for(let row = 0; row < table.length; row++){
+			for(let col = 0; col < table[row].length; col++){
+				table[row][col] = row*col;
+			}
+		}
+
+		// console.log(table[5][7]);
+
+		// Array Methods
+		// forEach
+		let data = [1,2,3,4,5], sum = 0;
+		// data.forEach(value => {sum+=value});
+		// console.log(data);
+
+		data.forEach(function(v,i,a){a[i] = v + 1;})
+
+		// console.log(data);
+		
+		// map()
+		let data_2 = [1,2,3];
+		let mapdata = data_2.map(x => x*x);
+		// console.log(mapdata);
+
+		// filter()
+		let data_3 = [5,4,3,2,1];
+		data_3.filter(x => x < 3);
+
+		// unshift, shift, push, pop
+		let stack = [];
+		stack.push(1,2);
+		stack.pop();
+ 		stack.push(3);
+ 		stack.pop();
+ 		stack.push([4,5]);
+ 		stack.pop();
+ 		stack.push(1);
+ 		stack.pop();
+ 		stack.pop();
+		// console.log(stack);
+		
+
+		stack.unshift(1,2);
+		stack.unshift(0);
+		stack.shift();
+		stack.shift();
+		stack.shift();
+		// console.log(stack);
+
+		
+	</script>
+</body>
+</html>

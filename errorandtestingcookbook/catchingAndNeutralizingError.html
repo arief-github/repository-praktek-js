@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    try{
+      // this is guaranteed to fail with an URIError
+      const uri = decodeURI('http%test');
+      console.log('Success!');
+    }
+    // when decodeURI() function fails and an error occurs,
+    // execution jumps to the catch block
+    catch(error){
+        console.error(error);
+    }
+    // finally runs whether try or catch block executed
+    finally{
+      console.log('The operation and any error handling is complete');
+    }
+  </script>
+</body>
+</html>

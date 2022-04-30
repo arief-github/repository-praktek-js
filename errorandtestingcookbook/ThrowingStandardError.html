@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Throwing Standard Error</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    function strictDivision(number, divisor) {
+      if (divisor == 0) {
+        throw new Error('Dividing by zero is not allowed')
+      } else {
+        return number / divisor;
+      }
+    }
+
+
+    // catch the error
+    // try {
+    //   const result = strictDivision(42, 0);
+    // } catch (error) {
+    //   console.log(`Error: ${error.message}`);
+    // }
+
+    //RangeError : function receives a value that falls outside of the acceptable numeric range
+    function setAge(age) {
+      const [upper, lower] = [125, 18];
+      if (age > 125 || age < 18) {
+        throw new RangeError(`Age [${age}] is out of the acceptable range of ${lower} to ${upper}.`);
+      }
+    }
+
+    // TypeError : to indicate error where the supplied value was wrong type
+    function calculateValue(num) {
+      if (typeof num !== 'number') {
+        throw new TypeError(`Value [${num}] is not a number`);
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>

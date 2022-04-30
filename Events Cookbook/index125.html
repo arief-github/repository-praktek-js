@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Accessing All Elements of a specific type</title>
+</head>
+<body>
+  <p><img src="firstImage.jpg" alt="img desc"></p>
+  <p><img src="secondImage.jpg" alt="img desc"></p>
+  <p><img src="thirdImage.jpg" alt="img desc"></p>
+  <script type="text/javascript">
+    const imgs = document.getElementsByTagName('img');
+    console.log(imgs.length);
+
+    const p = document.createElement('p');
+    const img = document.createElement('img');
+
+    img.src = './img/someimg.jpg';
+    p.appendChild(img);
+
+    const paras = document.getElementsByTagName('p');
+    paras[0].parentNode.appendChild(p);
+    console.log(imgs.length);
+  </script>
+</body>
+</html>

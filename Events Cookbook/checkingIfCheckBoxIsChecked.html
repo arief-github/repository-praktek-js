@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Checking if a checkbox is checked</title>
+</head>
+
+<body>
+  <input type="checkbox" id="check" name="" value="punk"> punk
+  <input type="button" id="accept" name="btn" value="Accept">
+  <script type="text/javascript">
+    const checkBox = document.getElementById('check');
+    const acceptButton = document.getElementById('accept');
+    // const validate = () => {
+    //   if(checkBox.checked){
+    //     console.log('Checkbox is checked');
+    //   }else{
+    //     console.log('Checkbox is not checked');
+    //   }
+    // }
+    //
+    // checkBox.addEventListener('click', validate);
+
+    // more discussion : if you make an accept user agreement
+    const validate = () => {
+      if (checkBox.checked) {
+        acceptButton.disabled = false;
+      } else {
+        acceptButton.disabled = true;
+      }
+    }
+
+    checkBox.addEventListener('click', validate);
+  </script>
+</body>
+
+</html>

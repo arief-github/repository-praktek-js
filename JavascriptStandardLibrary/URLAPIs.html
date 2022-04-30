@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>URL APIs</title>
+</head>
+<body>
+  <script type="text/javascript">
+    let url = new URL("https://example.com:8000/path/name?q=term#fragment");
+    // console.log("href = " + url.href);
+    // console.log("origin = " + url.origin);
+    // console.log("protocol = " + url.protocol);
+    // console.log("host = " + url.host);
+    // console.log("hostname = " + url.hostname);
+    // console.log("port = " + url.port);
+    // console.log("pathname = " + url.pathname);
+    // console.log("search = " + url.search);
+    // console.log("hash = " + url.hash);
+
+    let url2 = new URL("ftp://admin:1337!@ftp.example.com/");
+    let collections = {
+      href: url2.href,
+      origin: url2.origin,
+      username: url2.username,
+      password: url2.password
+    }
+    console.log(collections);
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="imgDownload"></div>
+  <script type="text/javascript">
+    //create promise
+    // const promise = fetch('https://upload.wikimedia.org/wikipedia/commons/b/b2/Eagle_nebula_pillars.jpg');
+
+    //fungsi promise ketika berhasil
+    // promise.then(function onSuccess(response) {
+    //   console.log(`HTTP status: ${response.status}`);
+    // });
+
+    //fungsi promise ketika terjadi error
+    // promise.catch(function onError(error) {
+    //   console.log(`Error: ${error}`);
+    // })
+
+    //fungsi promise akan selalu dijalankan walau keadaan berhasil atau error
+    // promise.finally(function onFinally() {
+    //   console.log('All done');
+    // });
+
+
+    // more compact and readable code
+    // fetch(
+    //     'https://upload.wikimedia.org/wikipedia/commons/b/b2/Eagle_nebula_pillars.jpg'
+    //   ).then(response => {
+    //     console.log(`HTTP status: ${response.status}`);
+    //   })
+    //   .catch(error => {
+    //     console.error(`Error: ${error}`);
+    //   })
+    //   .finally(() => {
+    //     console.log('All done');
+    //   })
+
+    // Promise return base64 encoded
+    // fetch('https://upload.wikimedia.org/wikipedia/commons/b/b2/Eagle_nebula_pillars.jpg')
+    //   .then(response => response.blob())
+    //   .then(blob => {
+    //     const img = document.getElementById('imgDownload');
+    //     img.src = URL.createObjectURL(blob);
+    //   });
+
+    // throw your own exceptions in a then() function
+    fetch('https://upload.wikimedia.org/wikipedia/commons/b/b2/Eagle_nebula_pillars.jpg')
+    .then(response => {
+      if(!response.ok){
+        // ini bukan error , tapi membuat http 200 menjadi sebuah error
+        throw new Error(`HTTP code: ${response.status}`);
+      }
+      else{
+        return response.blob();
+      }
+    })
+    .then(blob => {
+      const img = document.getElementById('imgDownload');
+      img.src = URL.createObjectURL(blob);
+    })
+    .catch(error => {
+      console.log('An error occured in the first or second promise');
+    })
+  </script>
+</body>
+
+</html>

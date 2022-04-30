@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Selectors API</title>
+</head>
+<body>
+  <article class="">
+      <div>
+        <img src="firstImg.jpg" alt="Empty Image">
+      </div>
+  </article>
+  <script type="text/javascript">
+    const imgs = document.querySelectorAll('article img');
+    const imgs2 = document.querySelectorAll('article > img');
+    const imgs3 = document.querySelectorAll('img + p');
+    const imgs4 = document.querySelectorAll('img[alt=""]');
+    const imgs5 = document.querySelectorAll('img:not([alt=""])');
+    console.log(imgs);
+  </script>
+</body>
+</html>

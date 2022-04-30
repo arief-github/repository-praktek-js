@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Document</title>
+	</head>
+	<body>
+		<p>
+			Traversing the Results from querySelectorAll()
+			with forEach()
+		</p>
+		<ul id="list">
+			<li>item1</li>
+			<li>item2</li>
+			<li>item3</li>
+			<li>item4</li>
+			<li>item5</li>
+		</ul>
+		<script>
+			// loop over nodelist using querySelector to find all list items on a page
+			const items = document.querySelectorAll("li");
+			const lists = document.getElementById("list");
+			const parent = lists.parentNode;
+			items.forEach((item) => {
+				console.log(item.firstChild.data);
+			});
+			console.log(parent);
+		</script>
+	</body>
+</html>

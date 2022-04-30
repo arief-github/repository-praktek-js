@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="demodiv">
+			<p id="text">
+				Accesing Element and Finding Its Parent
+				and Child Element
+			</p>
+		</div>
+		<script type="text/javascript">
+			let demoDiv = document.getElementById("demodiv");
+			// const parent = demoDiv.parentNode;
+			// const children = demoDiv.childNodes;
+			// console.log(children);
+
+			// second method to referencing in DOM
+			const parent =
+				document.getElementById(
+					"text"
+				).parentNode;
+
+			const children =
+				document.getElementById(
+					"demodiv"
+				).childNodes;
+
+			// you can find out the type of element
+			const type = children.nodeName;
+			// console.log(type);
+
+			let outputString = "";
+			if (demoDiv.hasChildNodes()) {
+				const children = demoDiv.childNodes;
+				children.forEach((child) => {
+					outputString += `has child ${child.nodeName}`;
+				});
+			}
+			// console.log(outputString);
+
+			
+		</script>
+	</body>
+</html>

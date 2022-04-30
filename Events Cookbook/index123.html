@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Document</title>
+	</head>
+	<p>Adding Click Functionality to an Element</p>
+	<body>
+		<a href="https://wikipedia.com" id="click-link">Wikipedia Click this link</a>
+		<button id="click-button">Click Me!</button>
+		<div tabindex="0" role="button" id="click-div">Click me</div>
+		<script>
+			// define an event handler function
+			// const clickHandler = (event) => {
+			// 	window.alert(
+			// 		"The element has been clicked"
+			// 	);
+			// };
+
+			// get reference to id
+			// const btn =
+			// 	document.getElementById("click-button");
+
+			// addEventListener
+			// btn.addEventListener("click", clickHandler);
+
+
+			// preventDefault event method allows you to override the default link behavior
+			// const clickHandler = (event) => {
+			// 	event.preventDefault();
+			// 	window.alert(`The ${event.currentTarget.nodeName} element has been clicked`);
+			// }
+			// const href = document.getElementById('click-link');
+			// href.addEventListener('click', clickHandler);
+
+			// performing keyboard to interact with page
+			const clickHandler = (event) => {
+				window.alert(`The ${event.currentTarget.nodeName} element has been clicked`);
+				event.preventDefault();
+			}
+
+			const clickableDiv = document.getElementById('click-link');
+			clickableDiv.addEventListener('click', clickHandler);
+			// using keydown event listener
+			clickableDiv.addEventListener('keydown', (event) => {
+				if(event.code === 'Space' || event.code === 'Enter'){
+					clickableDiv.click()
+				}
+			})
+
+
+
+		</script>
+	</body>
+</html>

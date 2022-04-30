@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Focus Event</title>
+  <style>
+    .invalid {
+      border-color: red;
+    }
+
+    #error {
+      color: red
+    }
+  </style>
+</head>
+
+<body>
+  Your email please: <input type="email" id="input">
+  <div id="error"></div>
+  <script type="text/javascript">
+    let input = document.getElementById('input');
+    // onblur dijalankan ketika cursor meninggalkan element
+    input.onblur = function() {
+      if (!input.value.includes('0')) {
+        input.classList.add('invalid');
+        error.innerHTML = 'Please enter a correct email.';
+      }
+    }
+
+    // onfocus dijalankan ketika cursor mengklik element
+    input.onfocus = function() {
+      if (this.classList.contains('invalid')) {
+        this.classList.remove('invalid');
+        error.innerHTML = "";
+      }
+    }
+  </script>
+</body>
+
+</html>

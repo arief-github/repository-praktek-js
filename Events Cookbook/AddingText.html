@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Adding text to a new paragraph</title>
+</head>
+<body>
+  <div id="myDiv">
+    <p>
+      There is a language 'little known,'<br />
+      Lovers claim it as their own.
+    </p>
+    <p>
+      Its symbols smile upon the land, <br />
+      Wrought by nature's wondrous hand;
+    </p>
+    <p>
+      And in their silent beauty speak,<br />
+      Of life and joy, to those who seek.
+    </p>
+    <p>
+      For Love Divine and sunny hours <br />
+      In the language of the flowers.
+    </p>
+  </div>
+  <script type="text/javascript">
+    // const newPara = document.createElement('p');
+    // const text = document.createTextNode('New paragraph content');
+    // newPara.appendChild(text);
+    //
+    // const getDiv = document.getElementById('myDiv');
+    // getDiv.appendChild(newPara);
+
+    // Demonstrating various methods for ading content to a web page
+    // use getElementById to access the div element
+    const div = document.getElementById('myDiv');
+
+    // get paragraph text
+    const txt = prompt('Enter new paragraph text', '');
+
+    // use getElementsByTagName to access the first paragraph
+    const oldPara = div.getElementsByName('p')[0];
+
+    // create a text node
+    const txtNode = document.createTextNode(txt);
+
+    // create new paragraph
+    const para = document.createElement('p');
+
+    // append the text to the paragraph, and insert the new paragraph
+    para.appendChild(txtNode);
+    div.insertBefore(para, oldPara);
+  </script>
+</body>
+
+</html>

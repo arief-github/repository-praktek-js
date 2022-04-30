@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM Level 0</title>
+</head>
+
+<body>
+  <p>
+    The traditional way of assigning event handlers in JavaScript is to assign a function to an event han-
+    dler property. This was the event handler assignment method introduced in the fourth generation of
+    web browsers, and it still remains in all modern browsers because of its simplicity and cross-browser
+    support. To assign an event handler using JavaScript, you must first retrieve a reference to the object
+    to act on.
+  </p>
+  <button id="myBtn">Click Me!</button>
+  <script type="text/javascript">
+    let btn = document.getElementById('myBtn');
+    /*
+    Note
+    that the event handler isn’t assigned until this code is run, so if the code appears after the code for
+    the button in the page, there may be an amount of time during which the button will do nothing
+    when clicked.
+    */
+    btn.onclick = function() {
+      console.log("Clicked");
+      // this is equivalent to element
+      // console.log(this.id);
+    }
+
+    // remove event handler
+    btn.onclick = function(){
+      console.log(event.type);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Register Form</title>
+  <style>
+    [aria-invalid] {
+      background-color: #f5b2b2;
+    }
+
+    input {
+      margin: 10px 0px;
+      padding: 5px;
+      background-color: #fff;
+    }
+  </style>
+  <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+</head>
+
+<body>
+  <form action="" id="example" name="example" method="post">
+    <fieldset>
+      <legend>Register Form</legend>
+      <div>
+        <label for="email">Email (required)</label>
+        <input type="email" id="email" name="email" value="" required>
+      </div>
+      <div>
+        <label for="postal">Postal Code</label>
+        <input type="text" name="url" id="postal" value="" pattern="[0-9]*">
+      </div>
+      <div id="error"></div>
+      <div>
+        <input type="submit" value="Submit">
+      </div>
+    </fieldset>
+  </form>
+  <script type="text/javascript">
+    function inputValidator(id, value) {
+      // check email validity
+      if (id === 'email') {
+        return validator.isEmail(value);
+      }
+
+      // check US postal code validity
+      if (id === 'postal') {
+        return validator.isPostalCode(value, 'US');
+      }
+
+      return false;
+    }
+
+    const inputs = document.querySelectorAll("#example input");
+
+    inputs.forEach(input => {
+      // fire an event each time an input value changes
+      input.addEventListener('input', () => {
+        // pass the input value to the validation function
+        const valid = inputValidator(input.id, input.value);
+        // if !valid set the aria-invalid attribute to true
+        if (!valid && input.value.length > 0) {
+          this.setAttribute('aria-invalid', 'true');
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Private Fields</title>
+</head>
+<body>
+	<script type="text/javascript">
+		class Person{
+			#firstName;
+			#lastName;
+
+			constructor(firstName, lastName){
+				this.#firstName = firstName;
+				this.#lastName = lastName;
+			}
+			get firstName(){
+				return this.#firstName;
+			}
+			set firstName(name){
+				this.#firstName = name;
+			}
+			get lastName(){
+				return this.#lastName;
+			}
+			set lastName(name){
+				this.#lastName = name;
+			}
+		}
+
+		const newPerson = new Person("Arief","Kurniawan");
+		console.log(newPerson.firstName);
+	</script>
+</body>
+</html>

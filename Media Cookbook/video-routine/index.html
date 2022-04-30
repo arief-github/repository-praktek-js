@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Controlling Video Using Javascript</title>
+  <style>
+    video {
+      border: 1px solid black;
+      max-width: 600px;
+    }
+  </style>
+</head>
+
+<body>
+  <video id="meadow">
+    <source src="meadow.m4v" type="video/mp4" />
+    <source src="meadow.webm" type="video/webm" />
+  </video>
+  <div id="feedback"></div>
+  <div id="controls">
+    <button id="start">Play</button>
+    <button id="stop">Stop</button>
+    <button id="pause">Pause</button>
+  </div>
+
+  <script type="text/javascript">
+    // capturing dom elements
+    const meadowVideo = document.getElementById('meadow');
+    const startButton = document.getElementById('start');
+    const pauseButton = document.getElementById('pause');
+    const stopButton = document.getElementById('stop');
+
+
+    // start video, enable stop and pause
+    // disable play
+
+    function startPlayback() {
+      meadowVideo.play();
+      startButton.disabled = true;
+      pauseButton.disabled = false;
+      stopButton.disabled = false;
+    }
+
+
+    function pausePlayback() {
+      meadowVideo.pause();
+      startButton.disabled = false;
+      pauseButton.disabled = true;
+      stopButton.disabled = true;
+
+    }
+
+    function stopPlayback() {
+      meadowVideo.pause();
+      meadowVideo.currentTime = 0; // pause dan reset video to 0 seconds
+      startButton.disabled = false;
+      pauseButton.disabled = true;
+      stopButton.disabled = true;
+    }
+
+    function reportProgress() {
+      const time = Math.round(this.currentTime); // capture the current time
+      const div = document.getElementById('feedback');
+      div.innerHTML = `${time} seconds`; // show seconds from current capture
+    }
+    // bundling event listeners
+
+    document.getElementById('start').addEventListener('click', startPlayback);
+    document.getElementById('stop').addEventListener('click', stopPlayback);
+    document.getElementById('pause').addEventListener('click', pausePlayback);
+    meadowVideo.addEventListener('timeupdate', reportProgress);
+  </script>
+</body>
+
+</html>

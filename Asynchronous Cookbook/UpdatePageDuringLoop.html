@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <p id="status"></p>
+  <script type="text/javascript">
+    //if you run this code, you wont see any of the "Just generated number"
+    // Instead, the page will become unresponsive for 10 seconds, then display “Processing
+    //completed.
+    // function doWork() {
+    //   const statusElement = document.getElementById('status');
+    //   const startTime = Date.now();
+    //   let counter = 0;
+    //   statusElement.innerText = 'Processing Started';
+    //
+    //   while ((Date.now() - startTime < 10000)) {
+    //     counter += 1;
+    //     statusElement.innerText = `Just generated number ${counter}`;
+    //   }
+    //   statusElement.innerText = 'Processing Completed';
+    // }
+    //
+    // doWork();
+
+    //Heres to fix the problem
+    function doWorkInChuncks() {
+      const statusElement = document.getElementById('status');
+      const startTime = Date.now();
+      let counter = 0;
+
+      statusElement.innerText = 'Processing started';
+
+      // create an anonymous function that does one chunk of work
+      const doChunkedTask = () => {
+        if (Date.now() - startTime < 10000) {
+          counter += 1;
+          statusElement.innerText = `Just generated number ${counter}`;
+          setTimeout(doChunkedTask, 0);
+        } else {
+          statusElement.innerText = 'Processing completed';
+        }
+      }
+      doChunkedTask();
+    }
+
+    doWorkInChuncks();
+  </script>
+</body>
+
+</html>

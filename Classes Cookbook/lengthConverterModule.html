@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Module Test</title>
+</head>
+<body>
+  <h1>Module Test</h1>
+  <button id="convertButton">Do Sample Conversion</button>
+  <script type = "module">
+    import {Units, LengthConverter} from "./lengthConverterModule.js";
+    function doSampleConversion(){
+      const lengthMiles = 495;
+      const lengthInElephants =
+      LengthConverter.Convert(lengthMiles, Units.Feet, Units.Yards);
+      alert(lengthInElephants);
+    }
+    document.getElementById('convertButton').addEventListener('click', doSampleConversion);
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error Event in Javascript</title>
+</head>
+<body>
+<script type="text/javascript">
+   // image support an error event
+   // anytime the URL in an images src doesnt return a recognized image format
+   // the error event fires
+
+    const image = new Image();
+
+    image.addEventListener("load", (event) => {
+        console.log("Image loaded")
+    });
+    image.addEventListener("error", (event) => {
+        console.log("Image not loaded!")
+    });
+
+    image.src = "doesnotexist.gif";
+</script>
+</body>
+</html>

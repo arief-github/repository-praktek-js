@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Best Practice UI Events</title>
+</head>
+<!-- cara kedua untuk assign load event -->
+
+<body>
+  <p id="script"></p>
+  <!-- <img src="image.jpg" alt="coder" onload="console.log('image loaded')" id="myImage"> -->
+  <script type="text/javascript">
+    // Cara pertama untuk assign onload event
+    // window.addEventListener("load", (event) => {
+    //   console.log("loaded");
+    // })
+
+    // let image = document.getElementById('myImage');
+    // image.addEventListener("load", (event) => {
+    //   console.log(event.target.src);
+    // })
+
+    // window.addEventListener("load", () => {
+    //   let image = document.createElement("img");
+    //   image.addEventListener("load", (event) => {
+    //     console.log("Image loaded");
+    //     console.log(event.target.src);
+    //   });
+    //   document.body.appendChild(image);
+    //   image.src = "image.jpg";
+    // });
+
+    // with image Object
+    // window.addEventListener("load", () => {
+    //   let image = new Image();
+    //   image.addEventListener("load", (event) => {
+    //     console.log("Image loaded");
+    //   })
+    //   image.src = "image.jpg";
+    // });
+
+    // illustrates how to assign an event handler for a script element
+    window.addEventListener("load", () => {
+      // make a script javascript
+      let script = document.createElement("script");
+      script.addEventListener("load", (event) => {
+        console.log("loaded");
+      });
+      script.src = "example.js";
+      document.body.appendChild(script);
+
+      // make a stylesheet
+      let link = document.createElement("link");
+      link.type = "text/css";
+      link.rel = "stylesheet";
+      link.addEventListener = ("load", (event) => {
+        console.log("css loaded");
+      });
+      link.href = "example.css";
+      document.querySelector("head").appendChild(link);
+      document.getElementsByTagName("head")[0].appendChild(link);
+    });
+
+    // load css script in Opera and IE8
+    // window.addEventListener("load", () => {
+    //   let link = document.createElement("link");
+    //   link.type = "text/css";
+    //   link.rel = "stylesheet";
+    //   link.addEventListener = ("load", (event) => {
+    //     console.log("css loaded");
+    //   })
+    //   link.href = "example.css";
+    //   document.getElementsByTagName("head")[0].appendChild(link);
+    // })
+  </script>
+</body>
+
+</html>

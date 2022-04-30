@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Finding All Elements That Share an Attribute</title>
+  <style>
+    .red {
+      color:red;
+      outline : blue;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li class="red">item1</li>
+    <li class="blue">item2</li>
+    <li class="blue">item3</li>
+    <li class="red">item4</li>
+    <li class="red">item5</li>
+  </ul>
+
+  <p>Lorem ipsum dolor <span class="red">Lorem ipsum dolor sit amet.</span> sit amet, consectetur adipisicing elit. Nam neque consectetur necessitatibus atque, quia debitis!</p>
+
+  <script type="text/javascript">
+  // ambil semua yang ada Attribute class
+  var elems = document.querySelectorAll('*[class]');
+  var reds = document.querySelectorAll('*[class="red"]');
+  var notRed = document.querySelectorAll('li:not(.red)');
+  notRed.forEach((items) => {
+    console.log(items.firstChild.data);
+  })
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>shadow DOM implementation</title>
+  <style>
+    .red-text {
+      color: red;
+    }
+
+    .green-text {
+      color: green;
+    }
+
+    .blue-text {
+      color: blue;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="red-text">
+    <h1>Make me red!</h1>
+  </div>
+  <div class="blue-text">
+    <h1>Make me blue!</h1>
+  </div>
+  <div class="green-text">
+    <h1>Make me green!</h1>
+  </div>
+
+  <script type="text/javascript">
+    document.body.innerHTML = `
+      <div id = "foo"></div>
+      <div id = "bar"></div>
+    `;
+
+    const redText = document.querySelector(".red-text");
+    const foo = document.querySelector('#foo');
+    foo.append(redText)
+    const bar = document.querySelector("#bar");
+
+    const openShadowDOM = foo.attachShadow({mode: "open"})
+    const closedShadowDOM = bar.attachShadow({mode: "closed"})
+
+    console.log(openShadowDOM);
+    console.log(closedShadowDOM);
+  </script>
+</body>
+</html>

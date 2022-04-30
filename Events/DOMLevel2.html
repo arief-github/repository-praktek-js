@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM Level 2</title>
+</head>
+
+<body>
+  <button id="myBtn">Clikc me! DOM</button>
+  <script type="text/javascript">
+    let btn = document.getElementById('myBtn');
+    btn.addEventListener("click", () => {
+      console.log(event.type);
+    }, false);
+
+    btn.addEventListener("click", () => {
+      console.log("Hello World!");
+    }, false);
+
+    // Remove event with removeEventListener
+    // btn.removeEventListener("click", function() {
+    //   console.log(this.id);
+    // }, false);
+
+
+    let handler = function(){
+      console.log(this.id);
+    }
+
+    btn.addEventListener("click", handler, false);
+    // btn.removeEventListener("click", handler, false);
+  </script>
+</body>
+
+</html>

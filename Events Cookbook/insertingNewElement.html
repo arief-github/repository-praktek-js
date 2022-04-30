@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Inserting a New Element in a Specific DOM Location</title>
+</head>
+
+<body>
+  <div id="target">
+    <p></p>
+  </div>
+
+  <script type="text/javascript">
+    const div = document.getElementById('target');
+    const paras = document.getElementsByName('p');
+    const newPara = document.createElement('p');
+    const text = document.createTextNode('New paragraph content');
+    newPara.appendChild(text);
+
+    if (paras[2]) {
+      div.insertBefore(newPara, paras[2]);
+    } else {
+      div.appendChild(newPara);
+    }
+  </script>
+</body>
+
+</html>

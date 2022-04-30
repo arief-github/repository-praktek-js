@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Callback</title>
+</head>
+<body>
+  <button id="test">Click</button>
+  <p id="testp"></p>
+  <script type="text/javascript">
+    document.getElementById('test').addEventListener("click", buttonClicked);
+    // first approach : reference function that declare in elsewhere
+    // function buttonClicked(){
+    //   setTimeout(showMessage, 2000);
+    // }
+    // function showMessage(){
+    //   alert('You clicked the button 2 seconds ago');
+    // }
+
+
+    // second approach : declares the function closer to where its needed using function expression
+    // function buttonClicked() {
+    //   const timeoutCallback = function showMessage() {
+    //     alert('You clicked the button 2 seconds ago');
+    //   }
+    //   setTimeout(timeoutCallback, 2000);
+    // }
+    // console.log(buttonClicked());
+
+    // third approach : inline style function
+    // function buttonClicked(){
+    //   setTimeout(function showMessage(){
+    //     alert('You clicked the button 2 seconds ago');
+    //   }, 2000);
+    // }
+    //
+    // console.log(buttonClicked());
+
+
+    // callback + closures
+    function buttonClicked() {
+      function logTime(time){
+          console.log('Logging at: '+time.toLocaleTimeString());
+      }
+      console.log('About to call callYouBack()');
+      callYouBack(logTime);
+      console.log('All finished');
+    }
+    function callYouBack(callbackFunction){
+      console.log('Starting callYouBack');
+      callbackFunction(new Date());
+      console.log('Ending callYouBack');
+    }
+
+  </script>
+</body>
+
+</html>
